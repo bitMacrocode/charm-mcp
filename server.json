@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
-  "name": "io.github.bitmacrocode/charm",
+  "name": "io.github.bitMacrocode/charm",
   "description": "OEM automotive repair data - part numbers, torque specs, procedures for 1982-2013 vehicles.",
   "repository": {
     "url": "https://github.com/bitMacrocode/charm-mcp",
     "source": "github"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://chatwithcharm.com",
   "remotes": [
     {
