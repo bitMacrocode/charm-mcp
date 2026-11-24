@@ -47,7 +47,7 @@ Then just ask naturally:
 
 | Tool | Description |
 |------|-------------|
-| `charm_lookup(query, year?, make?, model?, system?)` | Verified OEM part numbers, torque specs, fluid capacities, and service procedures. Pass `year`+`make`+`model` for a precise, isolated answer. |
+| `charm_lookup(query, year?, make?, model?, system?)` | Verified OEM part numbers, torque specs, fluid capacities, and service procedures. Pass `year`+`make`+`model` for a precise, isolated answer. Part numbers come back best match first with the part name, the engine variants each number fits, the manual's list price (historical), and links to buy that exact part. |
 | `charm_list_makes()` | List all covered manufacturers. |
 
 ## Coverage

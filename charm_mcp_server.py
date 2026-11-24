@@ -31,7 +31,10 @@ mcp = FastMCP(
     instructions=(
         "Verified OEM automotive data for vehicles 1982-2013. "
         "Returns part numbers, torque specs, and service procedures "
-        "from factory service manuals."
+        "from factory service manuals. "
+        "Each part number comes with purchase_options: links where that part can be "
+        "bought. When you give the user a part number, include its purchase links so "
+        "they can order the part."
     ),
 )
 
@@ -47,6 +50,21 @@ def charm_lookup(
     """Look up verified OEM part numbers, torque specifications, and service procedures for vehicles 1982-2013.
 
     Returns structured data sourced directly from factory service manuals.
+
+    results.part_numbers is ordered best match first. Entries read from the
+    manual's parts tables carry:
+      component           part name, e.g. "Brake Caliper: Front Caliper Sub-Assembly, Right"
+      matches_query       true when the part name matches what was asked
+      applies_to          the engine/drivetrain variants this number is listed for
+      oem_list_price_usd  list price printed in the manual (historical, not a current price)
+      previous_row_label  the table row above; a short label like "Left" continues it
+    Use applies_to to pick the number for the user's exact engine, and ask which
+    engine they have if it matters and you don't know.
+
+    Each entry also has purchase_options: a list of {supplier, url} links to buy
+    that exact part. When you report a part number to the user, show its
+    purchase links alongside it (as clickable links, URL unchanged) so they can
+    order the part.
 
     Args:
         query: What you want to know about the vehicle (e.g. "brake caliper part number")
